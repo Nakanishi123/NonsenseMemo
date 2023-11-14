@@ -4,39 +4,37 @@ import by from "./cc-icons-svg/by.svg";
 import sa from "./cc-icons-svg/sa.svg";
 import nc from "./cc-icons-svg/nc.svg";
 import nd from "./cc-icons-svg/nd.svg";
+import zero from "./cc-icons-svg/zero.svg";
 import { Image } from "astro:assets";
 
 interface Props {
   licenseText?: string;
 }
 const { licenseText = "null" } = Astro.props;
-const licenseRaw = licenseText.toUpperCase().replace("CC", "").trim();
-const validLicenses = ["BY", "BY-SA", "BY-NC", "BY-NC-SA", "BY-ND", "BY-NC-ND"];
+const licenseRaw = licenseText.toUpperCase().trim();
+const validLicenses = ["CC0", "CC BY", "CC BY-SA", "CC BY-NC", "CC BY-NC-SA", "CC BY-ND", "CC BY-NC-ND"];
 const license = validLicenses.includes(licenseRaw) ? licenseRaw : null;
+let licenseUrl =
+  license === "CC0"
+    ? "https://creativecommons.org/publicdomain/zero/1.0/"
+    : license
+    ? `https://creativecommons.org/licenses/${license.slice(3)}/4.0`
+    : null;
 ---
 
 {
   license && (
     <div class="license my-3 text-center text-sm">
       This work is licensed under
-      <a
-        rel="license"
-        href={`https://creativecommons.org/licenses/${license}/4.0`}
-        class="inline-flex hover:underline text-orange-500 hover:text-black"
-      >
-        CC {license}
+      <a rel="license" href={licenseUrl} class="inline-flex hover:underline text-orange-500 hover:text-black">
+        {license}
         <div class="cc-icons flex mx-1 h-5">
-          <Image class="icon w-5" src={cc} alt="CC" />
-          <Image class="icon w-5" src={by} alt="BY" />
-          {license.includes("NC") && (
-            <Image class="icon w-5" src={nc} alt="NC" />
-          )}
-          {license.includes("SA") && (
-            <Image class="icon w-5" src={sa} alt="SA" />
-          )}
-          {license.includes("ND") && (
-            <Image class="icon w-5" src={nd} alt="ND" />
-          )}
+          {license.includes("CC0") && <Image class="icon w-5" src={zero} alt="0" />}
+          {!license.includes("CC0") && <Image class="icon w-5" src={cc} alt="CC" />}
+          {license.includes("BY") && <Image class="icon w-5" src={by} alt="BY" />}
+          {license.includes("NC") && <Image class="icon w-5" src={nc} alt="NC" />}
+          {license.includes("SA") && <Image class="icon w-5" src={sa} alt="SA" />}
+          {license.includes("ND") && <Image class="icon w-5" src={nd} alt="ND" />}
         </div>
       </a>
     </div>

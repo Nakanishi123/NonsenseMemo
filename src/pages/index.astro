@@ -3,12 +3,10 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, URL_BASE } from "../consts";
 import FormattedDate from "../components/FormattedDate.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
@@ -21,9 +19,9 @@ const posts = (await getCollection("blog")).sort(
     <main>
       <ul class="max-w-screen-md mx-auto">
         {
-          posts.map((post) => (
+          posts.map(post => (
             <li class="px-2 pt-2 pb-1 border-b hover:border-sky-400">
-              <a href={`/blog/${post.slug}/`} class="flex items-center">
+              <a href={URL_BASE + `/blog/${post.slug}/`} class="flex items-center">
                 <h4 class="text-xl font-bold mb-0">{post.data.title}</h4>
                 <p class="text-sm text-gray-400 mb-0 ml-2">
                   <FormattedDate date={post.data.pubDate} />
