@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { URL_BASE } from "../consts";
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description = "メモ", image = "/nonsense1.webp" } = Astro.props;
+const { title, description = "メモ", image = URL_BASE + "/nonsense1.webp" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
