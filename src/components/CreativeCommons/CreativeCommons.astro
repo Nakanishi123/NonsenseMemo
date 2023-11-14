@@ -1,0 +1,50 @@
+---
+import cc from "./cc-icons-svg/cc.svg";
+import by from "./cc-icons-svg/by.svg";
+import sa from "./cc-icons-svg/sa.svg";
+import nc from "./cc-icons-svg/nc.svg";
+import nd from "./cc-icons-svg/nd.svg";
+import { Image } from "astro:assets";
+
+interface Props {
+  licenseText?: string;
+}
+const { licenseText = "null" } = Astro.props;
+const licenseRaw = licenseText.toUpperCase().replace("CC", "").trim();
+const validLicenses = ["BY", "BY-SA", "BY-NC", "BY-NC-SA", "BY-ND", "BY-NC-ND"];
+const license = validLicenses.includes(licenseRaw) ? licenseRaw : null;
+---
+
+{
+  license && (
+    <div class="license my-3 text-center text-sm">
+      This work is licensed under
+      <a
+        rel="license"
+        href={`https://creativecommons.org/licenses/${license}/4.0`}
+        class="inline-flex hover:underline text-orange-500 hover:text-black"
+      >
+        CC {license}
+        <div class="cc-icons flex mx-1 h-5">
+          <Image class="icon w-5" src={cc} alt="CC" />
+          <Image class="icon w-5" src={by} alt="BY" />
+          {license.includes("NC") && (
+            <Image class="icon w-5" src={nc} alt="NC" />
+          )}
+          {license.includes("SA") && (
+            <Image class="icon w-5" src={sa} alt="SA" />
+          )}
+          {license.includes("ND") && (
+            <Image class="icon w-5" src={nd} alt="ND" />
+          )}
+        </div>
+      </a>
+    </div>
+  )
+}
+
+<style>
+  .icon {
+    margin: 0 0.1rem;
+  }
+</style>

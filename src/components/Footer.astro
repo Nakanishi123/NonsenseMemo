@@ -1,0 +1,13 @@
+---
+import { AUTHOR } from "../consts";
+const today = new Date();
+const startYear = 2023;
+const currentYear = today.getFullYear();
+const year =
+  currentYear > startYear ? `${startYear} - ${currentYear}` : `${startYear}`;
+---
+
+<footer class="text-center p-4 mt-8">
+  &copy; {year}
+  {AUTHOR}. All rights reserved.
+</footer>
