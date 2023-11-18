@@ -1,11 +1,9 @@
 ---
-import { URL_BASE } from "../../consts";
 import { getCollection } from "astro:content";
-import { tag2Color } from "./tagUtils";
 import Tag from "./Tag.astro";
 
 const allPosts = await getCollection("blog");
-const uniqueTags = [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))];
+const uniqueTags = [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
 ---
 
 <div class="flex flex-wrap">
