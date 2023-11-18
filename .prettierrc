@@ -1,4 +1,13 @@
 {
+  "plugins": ["prettier-plugin-astro-organize-imports"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ],
   "printWidth": 120,
   "tabWidth": 2,
   "useTabs": false,
