@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostList from "../../components/PostList.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const uniqueTags = [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))];
+  return uniqueTags.map(tag => {
+    const filteredPosts = allPosts.filter(post => post.data.tags?.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout title={tag} description={tag}>
+  <h3 class="text-center">{tag}</h3>
+  <PostList posts={posts} />
+</BaseLayout>

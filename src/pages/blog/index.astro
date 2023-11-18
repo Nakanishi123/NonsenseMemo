@@ -1,37 +1,13 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, URL_BASE } from "../../consts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
+import PostList from "../../components/PostList.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
-      <ul class="max-w-screen-md mx-auto">
-        {
-          posts.map(post => (
-            <li class="px-2 pt-2 pb-1 border-b hover:border-sky-400">
-              <a href={URL_BASE + `/blog/${post.slug}/`} class="flex items-center">
-                <h4 class="text-xl font-bold mb-0">{post.data.title}</h4>
-                <p class="text-sm text-gray-400 mb-0 ml-2">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h3 class="text-center">一覧</h3>
+  <PostList posts={posts} />
+</BaseLayout>

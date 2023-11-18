@@ -1,0 +1,25 @@
+---
+import { URL_BASE } from "../../consts";
+import { tag2Color } from "./tagUtils";
+
+type Props = {
+  tag: string;
+  num: number;
+};
+
+const { tag, num } = Astro.props;
+const color = tag2Color(tag);
+const onclick = `location.href="${URL_BASE}/tag/${tag}"`;
+---
+
+<button
+  class={`inline-flex items-center m-1 px-5 py-1 text-lg font-medium text-center text-${color}-50 bg-${color}-600 rounded-lg hover:bg-${color}-700`}
+  onclick={onclick}
+>
+  {tag}
+  <span
+    class={`inline-flex items-center justify-center w-6 h-6 ms-2 text-lg font-semibold text-${color}-800 bg-${color}-200 rounded-full`}
+  >
+    {num}
+  </span>
+</button>
