@@ -1,0 +1,26 @@
+---
+import type { GetStaticPathsOptions } from "astro";
+import { getCollection } from "astro:content";
+import Pagination from "../../components/Pagination.astro";
+import PostList from "../../components/PostList.astro";
+import { POSTS_PER_PAGE, URL_BASE } from "../../consts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: POSTS_PER_PAGE });
+}
+
+const { page } = Astro.props;
+
+const hasPrev = page.currentPage != 1;
+const hasNext = page.currentPage != page.lastPage;
+const onClickPrev = hasPrev ? `location.href = '${URL_BASE}/blog/${page.currentPage - 1}'` : "";
+const onClickNext = hasNext ? `location.href = '${URL_BASE}/blog/${page.currentPage + 1}'` : "";
+---
+
+<BaseLayout title={`blog ${page.currentPage}ページ`} description=`blog ${page.currentPage}ページです`>
+  <h3 class="mb-5 text-center text-4xl">{page.currentPage}</h3>
+  <PostList posts={page.data} />
+  <Pagination page={page} onClickPrev={onClickPrev} onClickNext={onClickNext} />
+</BaseLayout>

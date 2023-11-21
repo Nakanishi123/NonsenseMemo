@@ -1,5 +1,6 @@
 ---
-import { getCollection,type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import "zenn-content-css";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
@@ -16,5 +17,7 @@ const { Content } = await post.render();
 ---
 
 <BlogPost {...post.data}>
-  <Content />
+  <div class="znc">
+    <Content />
+  </div>
 </BlogPost>

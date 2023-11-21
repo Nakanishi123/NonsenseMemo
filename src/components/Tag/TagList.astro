@@ -2,8 +2,13 @@
 import { getCollection } from "astro:content";
 import Tag from "./Tag.astro";
 
+type Props = {
+  tags?: string[];
+};
+
+const { tags } = Astro.props;
 const allPosts = await getCollection("blog");
-const uniqueTags = [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
+const uniqueTags = tags ? tags : [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
 ---
 
 <div class="flex flex-wrap">

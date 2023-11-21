@@ -1,11 +1,20 @@
 ---
-import { SITE_TITLE,URL_BASE } from "../consts";
+import { SITE_TITLE, URL_BASE } from "../consts";
 ---
 
-<header class="text-center mt-4">
-  <a
-    href={URL_BASE}
-    class="text-5xl font-bold text-gray-800 hover:text-indigo-800"
-    >{SITE_TITLE}</a
-  >
+<header class="text-center">
+  <a href={URL_BASE} class="text-5xl font-bold text-gray-800 hover:text-indigo-800">{SITE_TITLE}</a>
+  <nav>
+    <ul class="mt-4 flex justify-center">
+      <li class="border-r border-slate-800 px-3">
+        <a href={URL_BASE} class="block w-24 text-center font-bold hover:text-indigo-600">Home</a>
+      </li>
+      <li class="border-r border-slate-800 px-3">
+        <a href={URL_BASE + "/blog/1"} class="block w-24 text-center font-bold hover:text-indigo-600">Blog</a>
+      </li>
+      <li class="border-slate-800 px-3">
+        <a href={URL_BASE + "/tag"} class="block w-24 text-center font-bold hover:text-indigo-600">Tag</a>
+      </li>
+    </ul>
+  </nav>
 </header>
