@@ -17,9 +17,15 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class="m-5 mx-auto max-w-screen-md rounded-2xl border bg-white p-5">
+    <main class="main-content m-5 mx-auto max-w-screen-md rounded-2xl border border-slate-300 bg-white p-5">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .main-content{
+    box-shadow: 4px 4px 5px rgb(130, 152, 156);
+  }
+</style>
