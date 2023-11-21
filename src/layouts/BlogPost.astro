@@ -5,7 +5,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import TagList from "../components/Tag/TagList.astro";
 import BaseLayout from "./BaseLayout.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"memo">["data"];
 
 const { title, description, pubDate, updatedDate, license, tags } = Astro.props;
 ---
