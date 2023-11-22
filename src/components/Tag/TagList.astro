@@ -4,9 +4,10 @@ import Tag from "./Tag.astro";
 
 type Props = {
   tags?: string[];
+  showCount?: boolean;
 };
 
-const { tags } = Astro.props;
+const { tags,showCount=true } = Astro.props;
 const allPosts = await getCollection("memo");
 const uniqueTags = tags ? tags : [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
 ---
@@ -15,7 +16,7 @@ const uniqueTags = tags ? tags : [...new Set(allPosts.map(post => post.data.tags
   {
     uniqueTags.map(tag => {
       const num = allPosts.filter(post => post.data.tags?.includes(tag)).length;
-      return <Tag tag={tag} num={num} />;
+      return <Tag tag={tag} num={num} showCount={showCount} />;
     })
   }
 </div>

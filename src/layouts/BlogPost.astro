@@ -28,7 +28,7 @@ const { title, description, pubDate, updatedDate, license, tags } = Astro.props;
     </div>
     <slot />
     <div class="mt-4">
-      <TagList tags={tags} />
+      <TagList tags={tags} showCount={false} />
       <CreativeCommons licenseText={license} />
     </div>
   </article>
