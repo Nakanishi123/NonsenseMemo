@@ -7,7 +7,7 @@ type Props = {
   showCount?: boolean;
 };
 
-const { tags,showCount=true } = Astro.props;
+const { tags, showCount = true } = Astro.props;
 const allPosts = await getCollection("memo");
 const uniqueTags = tags ? tags : [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
 ---
