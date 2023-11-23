@@ -2,21 +2,21 @@
 import { SITE_TITLE, URL_BASE } from "../consts";
 ---
 
-<header class="text-center">
+<header class="mx-auto max-w-screen-sm text-center">
   <a href={URL_BASE} class="text-5xl font-bold text-gray-800 hover:text-indigo-800">{SITE_TITLE}</a>
   <nav>
     <ul class="mt-4 flex justify-center">
-      <li class="border-r border-slate-800 px-3">
-        <a href={URL_BASE} class="block w-24 text-center font-bold hover:text-indigo-600">Home</a>
+      <li class="w-1/4 border-r border-slate-800 px-3">
+        <a href={URL_BASE} class="text-center font-bold hover:text-indigo-600">Home</a>
       </li>
-      <li class="border-r border-slate-800 px-3">
-        <a href={URL_BASE + "/memo/1"} class="block w-24 text-center font-bold hover:text-indigo-600">Memo</a>
+      <li class="w-1/4 border-r border-slate-800 px-3">
+        <a href={URL_BASE + "/memo/1"} class="text-center font-bold hover:text-indigo-600">Memo</a>
       </li>
-      <li class="border-r border-slate-800 px-3">
-        <a href={URL_BASE + "/tag"} class="block w-24 text-center font-bold hover:text-indigo-600">Tag</a>
+      <li class="w-1/4 border-r border-slate-800 px-3">
+        <a href={URL_BASE + "/tag"} class="text-center font-bold hover:text-indigo-600">Tag</a>
       </li>
-      <li class="border-slate-800 px-3">
-        <a href={URL_BASE + "/search"} class="block w-24 text-center font-bold hover:text-indigo-600">Search</a>
+      <li class="w-1/4 border-slate-800 px-3">
+        <a href={URL_BASE + "/search"} class="text-center font-bold hover:text-indigo-600">Search</a>
       </li>
     </ul>
   </nav>
