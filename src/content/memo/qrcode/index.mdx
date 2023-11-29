@@ -1,0 +1,46 @@
+---
+title: "WIFIのQRコード作成ツール"
+pubDate: "2022-05-22"
+license: "CC BY-SA"
+description: "WPA3に対応したWIFIのQRコード作成ツール"
+tags: ["QRコード", "wifi"]
+heroImage: "wifi.webp"
+slug: "wifi_qrcode"
+---
+
+import QRCode from "./Qrcode";
+
+## QRコード作成ツール
+
+<QRCode client:load />
+
+以下は雑記
+
+## WPA3だとWIFIのQRコードが使えない
+
+Wifiの接続設定をQRコードで表すやつは便利で，ググれば生成サイトが色々あるので普段から使っていたが，先日購入したルータでは
+認証ができなかったので仕様を色々と調べてみた．
+
+## 仕様
+
+なかなか見つからなかったが[Wi-Fi Allianceの仕様書](https://www.wi-fi.org/system/files/WPA3%20Specification%20v3.1.pdf)
+があったので色々とメモしておく．(7.1がQR関連)
+
+```
+ WIFI:[T:{type};][R:{trdisable};]S:{ssid};[H:{hidden};][P:{password};];
+```
+
+上が一般的な，QRの内容である．パラメータのざっくりとした説明は，
+
+|  パラメータ   | 説明                                                                                |
+| :-----------: | ----------------------------------------------------------------------------------- |
+|   \{type\}    | 暗号化のタイプ．WEPとかWPAとか．暗号化しない場合はなくていい                        |
+| \{trdisable\} | WPA3の時,後方互換性を持たせないかどうか．持たせるときは1． 持たせる場合はなくていい |
+|   \{ssid\}    | SSID                                                                                |
+|  \{hidden\}   | SSIDを隠しているかどうか．隠しているときはtrue．なくていい．                        |
+| \{password\}  | パスワード．なくていい                                                              |
+
+他にも設定項目はあるが使った事のないものばかりなので割愛．
+
+大半のQRコード作成サイトは，TypeとSSIDとパスワードだけを実装しているので，WPA3-Onlyモードで使っていた僕はtridisableの項
+目がなくて認証できなかったというわけだった．

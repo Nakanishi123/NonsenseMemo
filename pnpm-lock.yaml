@@ -41,6 +41,9 @@ dependencies:
   sharp:
     specifier: ^0.32.6
     version: 0.32.6
+  styled-qr-code:
+    specifier: ^1.0.0
+    version: 1.0.0
   tailwindcss:
     specifier: ^3.0.24
     version: 3.3.5
@@ -4244,6 +4247,11 @@ packages:
       once: 1.4.0
     dev: false
 
+  /qrcode-generator@1.4.4:
+    resolution:
+      { integrity: sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw== }
+    dev: false
+
   /queue-microtask@1.2.3:
     resolution:
       { integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A== }
@@ -4801,6 +4809,13 @@ packages:
       { integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg== }
     dependencies:
       inline-style-parser: 0.1.1
+    dev: false
+
+  /styled-qr-code@1.0.0:
+    resolution:
+      { integrity: sha512-Tye/Omr8VYUUUCiBE+GNMeJ1Tt0cIsDkLXnQGG6/Xxegyd1021wQKFAFvx/hjaTUrfwpmukWTZfXs3uc/XXN0g== }
+    dependencies:
+      qrcode-generator: 1.4.4
     dev: false
 
   /sucrase@3.34.0:
