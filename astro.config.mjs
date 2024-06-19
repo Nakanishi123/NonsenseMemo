@@ -10,5 +10,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://Nakanishi123.github.io",
   base: "/NonsenseMemo",
-  integrations: [mdx(), sitemap(), react(), tailwind(), pagefind(),icon()],
+  integrations: [mdx(), sitemap(), react(), tailwind(), pagefind(), icon()],
 });
