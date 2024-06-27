@@ -8,7 +8,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://Nakanishi123.github.io",
-  base: "/NonsenseMemo",
+  site: "https://nonsensememo.pages.dev",
   integrations: [mdx(), sitemap(), react(), tailwind(), pagefind(), icon()],
 });

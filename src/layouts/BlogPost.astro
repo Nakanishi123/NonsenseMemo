@@ -9,7 +9,7 @@ import BaseLayout from "./BaseLayout.astro";
 type Props = CollectionEntry<"memo">["data"];
 
 const { title, description, pubDate, updatedDate, license, tags, heroImage } = Astro.props;
-const {slug} = Astro.params;
+const { slug } = Astro.params;
 ---
 
 <BaseLayout title={title} description={description || ""} image={heroImage?.src}>
