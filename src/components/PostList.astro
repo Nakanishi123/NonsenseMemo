@@ -19,7 +19,7 @@ const { posts } = Astro.props;
               src={post.data.heroImage}
               alt={post.data.title}
               class="hero-image h-48 w-full object-cover"
-              transition:name={`hero-image-${post.data.title}`}
+              transition:name={`hero-image-${post.slug}`}
             />
           ) : (
             <Image
@@ -32,10 +32,10 @@ const { posts } = Astro.props;
           )}
         </figure>
         <div class="card-body">
-          <div class="text-balance text-sm text-primary" transition:name={`date-${post.data.title}`}>
+          <div class="text-balance text-sm text-primary" transition:name={`date-${post.slug}`}>
             <FormattedDate date={post.data.pubDate} />
           </div>
-          <h2 class="card-title" transition:name={`title-${post.data.title}`}>
+          <h2 class="card-title" transition:name={`title-${post.slug}`}>
             {post.data.title}
           </h2>
           <TagList tags={post.data.tags} size="btn-xs" showCount={false} />

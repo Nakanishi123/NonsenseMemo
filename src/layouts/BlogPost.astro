@@ -9,6 +9,7 @@ import BaseLayout from "./BaseLayout.astro";
 type Props = CollectionEntry<"memo">["data"];
 
 const { title, description, pubDate, updatedDate, license, tags, heroImage } = Astro.props;
+const {slug} = Astro.params;
 ---
 
 <BaseLayout title={title} description={description || ""} image={heroImage?.src}>
@@ -19,12 +20,12 @@ const { title, description, pubDate, updatedDate, license, tags, heroImage } = A
           src={heroImage}
           alt={title}
           class="max-h-[50vh] w-full rounded-xl object-cover"
-          transition:name={`hero-image-${title}`}
+          transition:name={`hero-image-${slug}`}
         />
       )
     }
     <div class="mb-8 mt-4 text-center">
-      <div class="date text-primary" transition:name={`date-${title}`}>
+      <div class="date text-primary" transition:name={`date-${slug}`}>
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
@@ -34,7 +35,7 @@ const { title, description, pubDate, updatedDate, license, tags, heroImage } = A
           )
         }
       </div>
-      <h1 class="mb-5 mt-2 break-words text-3xl font-bold" transition:name={`title-${title}`}>{title}</h1>
+      <h1 class="mb-5 mt-2 break-words text-3xl font-bold" transition:name={`title-${slug}`}>{title}</h1>
       <TagList tags={tags} showCount={false} />
     </div>
     <slot />
