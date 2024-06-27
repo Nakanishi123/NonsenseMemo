@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import TagList from "./Tag/TagList.astro";
+---
+
+<aside class="mt-10 w-full gap-6 md:max-w-[25%]">
+  <div class="flex flex-col gap-10">
+    <!-- <label class="input input-bordered flex items-center gap-2 border-2">
+      <input type="text" class="w-full" placeholder="Search" data-url-base={URL_BASE} />
+      <Icon class="text-3xl" name="mdi:search" />
+    </label> -->
+    <div>
+      <div class="mb-3 flex flex-row items-center">
+        <Icon class="text-3xl" name="mdi:tag" />
+        <h3 class="ml-2 text-2xl font-bold">Tags</h3>
+      </div>
+      <TagList />
+    </div>
+  </div>
+</aside>
+
+<!-- <script>
+  const setSearch = () => {
+    const search = document.querySelector('input[type="text"]');
+    if (!search) return;
+    const URL_BASE = search.getAttribute("data-url-base");
+    search.addEventListener("keydown", (e: Event) => {// Event 型を使用
+      const keyboardEvent = e as KeyboardEvent; // KeyboardEvent への型アサーション
+      if (keyboardEvent.key === "Enter") {
+        const target = keyboardEvent.target as HTMLInputElement; // HTMLInputElement への型アサーション
+        const value = target.value;
+        if (value) {
+          window.location.href = `${URL_BASE}/search?q=${value}`;
+        }
+      }
+    });
+  };
+
+  setSearch();
+  document.addEventListener("astro:after-swap", setSearch);
+</script> -->

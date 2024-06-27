@@ -17,6 +17,7 @@
     "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/mdi": "^1.1.67",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.10.3",
@@ -31,12 +32,14 @@
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.1.19",
+    "@tailwindcss/typography": "^0.5.13",
     "astro-icon": "^1.1.0",
     "daisyui": "^4.12.2",
     "prettier": "3.3.2",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-astro-organize-imports": "^0.4.8",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "theme-change": "^2.5.0",
     "typescript": "^5.4.5"
   }
 }

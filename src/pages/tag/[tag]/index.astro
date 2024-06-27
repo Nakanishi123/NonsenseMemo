@@ -20,6 +20,6 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout title={tag} description={tag}>
-  <h3 class="mb-5 text-center text-4xl">{tag}</h3>
+  <h3 class="mb-5 text-center text-4xl font-bold text-primary">{tag}</h3>
   <PostList posts={posts} />
 </BaseLayout>

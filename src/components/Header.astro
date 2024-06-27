@@ -1,23 +1,36 @@
 ---
 import { SITE_TITLE, URL_BASE } from "../consts";
+import ThemeController from "./ThemeController.astro";
+
+const onClickHome = "window.location.href='" + URL_BASE + "'";
 ---
 
-<header class="mx-auto max-w-screen-sm text-center">
-  <a href={URL_BASE} class="text-5xl font-bold text-gray-800 hover:text-indigo-800">{SITE_TITLE}</a>
-  <nav>
-    <ul class="mt-4 flex justify-center">
-      <li class="w-1/4 border-r border-slate-800 px-3">
-        <a href={URL_BASE} class="text-center font-bold hover:text-indigo-600">Home</a>
-      </li>
-      <li class="w-1/4 border-r border-slate-800 px-3">
-        <a href={URL_BASE + "/memo/1"} class="text-center font-bold hover:text-indigo-600">Memo</a>
-      </li>
-      <li class="w-1/4 border-r border-slate-800 px-3">
-        <a href={URL_BASE + "/tag"} class="text-center font-bold hover:text-indigo-600">Tag</a>
-      </li>
-      <li class="w-1/4 border-slate-800 px-3">
-        <a href={URL_BASE + "/search"} class="text-center font-bold hover:text-indigo-600">Search</a>
-      </li>
-    </ul>
-  </nav>
+<header class="navbar bg-base-200 bg-opacity-70">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+        </svg>
+      </div>
+      <ul tabindex="0" class="menu-xl menu dropdown-content z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
+        <li><a href={URL_BASE}>Home</a></li>
+        <li><a href={URL_BASE + "/memo/1"}>Memo</a></li>
+        <li><a href={URL_BASE + "/tag"}>Tag</a></li>
+        <li><a href={URL_BASE + "/search"}>Search</a></li>
+      </ul>
+    </div>
+    <button onclick={onClickHome} class="btn btn-ghost text-xl font-bold">{SITE_TITLE} </button>
+  </div>
+  <div class="navbar-center hidden md:flex">
+    <div class="flex gap-6 text-xl font-bold">
+      <a class="hover:text-primary" href={URL_BASE}>Home</a>
+      <a class="hover:text-primary" href={URL_BASE + "/memo/1"}>Memo</a>
+      <a class="hover:text-primary" href={URL_BASE + "/tag"}>Tag</a>
+      <a class="hover:text-primary" href={URL_BASE + "/search"}>Search</a>
+    </div>
+  </div>
+  <div class="navbar-end mr-2">
+    <ThemeController />
+  </div>
 </header>

@@ -20,7 +20,7 @@ const onClickNext = hasNext ? `location.href = '${URL_BASE}/memo/${page.currentP
 ---
 
 <BaseLayout title={`memo ${page.currentPage}ページ`} description=`memo ${page.currentPage}ページです`>
-  <h3 class="mb-5 text-center text-4xl">{page.currentPage}</h3>
+  <h3 class="mb-8 text-center text-3xl font-bold">{page.currentPage}</h3>
   <PostList posts={page.data} />
   <Pagination page={page} onClickPrev={onClickPrev} onClickNext={onClickNext} />
 </BaseLayout>

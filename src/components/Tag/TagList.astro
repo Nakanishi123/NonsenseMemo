@@ -5,18 +5,19 @@ import Tag from "./Tag.astro";
 type Props = {
   tags?: string[];
   showCount?: boolean;
+  size?: "btn-sm" | "btn-xs";
 };
 
-const { tags, showCount = true } = Astro.props;
+const { tags, showCount = true, size = "btn-sm" } = Astro.props;
 const allPosts = await getCollection("memo");
 const uniqueTags = tags ? tags : [...new Set(allPosts.map(post => post.data.tags).flatMap(tag => tag ?? []))].sort();
 ---
 
-<div class="flex flex-wrap">
+<div class="flex flex-wrap gap-1">
   {
     uniqueTags.map(tag => {
       const num = allPosts.filter(post => post.data.tags?.includes(tag)).length;
-      return <Tag tag={tag} num={num} showCount={showCount} />;
+      return <Tag tag={tag} num={num} showCount={showCount} size={size} />;
     })
   }
 </div>

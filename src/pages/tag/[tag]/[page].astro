@@ -28,7 +28,7 @@ const onClickNext = hasNext ? `location.href = '${URL_BASE}/tag/${tag}/${page.cu
 ---
 
 <BaseLayout title={`${tag} ${page.currentPage}ページ`} description=`${tag} ${page.currentPage}ページです`>
-  <h3 class="mb-5 text-center text-4xl">{`${tag}`}</h3>
+  <h3 class="mb-5 text-center text-4xl font-bold text-primary">{`${tag}`}</h3>
   <PostList posts={page.data} />
   <Pagination page={page} onClickPrev={onClickPrev} onClickNext={onClickNext} />
 </BaseLayout>

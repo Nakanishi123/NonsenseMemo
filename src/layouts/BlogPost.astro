@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import CreativeCommons from "../components/CreativeCommons/CreativeCommons.astro";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -7,13 +8,23 @@ import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"memo">["data"];
 
-const { title, description, pubDate, updatedDate, license, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, license, tags, heroImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description || ""}>
+<BaseLayout title={title} description={description || ""} image={heroImage?.src}>
   <article>
-    <div class="mb-8 text-center">
-      <div class="date">
+    {
+      heroImage && (
+        <Image
+          src={heroImage}
+          alt={title}
+          class="max-h-[50vh] w-full rounded-xl object-cover"
+          transition:name={`hero-image-${title}`}
+        />
+      )
+    }
+    <div class="mb-8 mt-4 text-center">
+      <div class="date text-primary" transition:name={`date-${title}`}>
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
@@ -23,12 +34,11 @@ const { title, description, pubDate, updatedDate, license, tags } = Astro.props;
           )
         }
       </div>
-      <h1 class="mt-2 break-words text-5xl">{title}</h1>
-      <hr class="mt-4" />
+      <h1 class="mb-5 mt-2 break-words text-3xl font-bold" transition:name={`title-${title}`}>{title}</h1>
+      <TagList tags={tags} showCount={false} />
     </div>
     <slot />
     <div class="mt-4">
-      <TagList tags={tags} showCount={false} />
       <CreativeCommons licenseText={license} />
     </div>
   </article>

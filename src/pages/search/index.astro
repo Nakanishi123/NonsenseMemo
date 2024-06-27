@@ -1,9 +1,9 @@
 ---
-import Search from "../../components/Search/Search.tsx";
+import Search from "astro-pagefind/components/Search";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="検索" description="検索する">
-  <h3 class="mb-5 text-center text-4xl">検索</h3>
-  <Search client:load />
+  <h3 class="mb-5 text-center text-4xl font-bold">検索</h3>
+  <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 </BaseLayout>

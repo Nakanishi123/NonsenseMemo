@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import PostList from "../components/PostList.astro";
-import TagList from "../components/Tag/TagList.astro";
 import { POSTS_PER_PAGE, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -11,9 +10,6 @@ const posts = (await getCollection("memo"))
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h3 class="mb-5 text-center text-4xl">最近</h3>
+  <h3 class="mb-8 text-center text-3xl font-bold">最近</h3>
   <PostList posts={posts} />
-  <hr />
-  <h3 class="mb-5 mt-10 text-center text-4xl">Tag</h3>
-  <TagList />
 </BaseLayout>

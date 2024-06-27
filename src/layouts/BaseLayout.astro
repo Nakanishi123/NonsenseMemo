@@ -2,29 +2,30 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import SideBar from "../components/SideBar.astro";
 
 type Props = {
   title: string;
   description: string;
+  image?: string;
+  showSidebar?: boolean;
 };
 
-const { title, description } = Astro.props;
+const { title, description, image, showSidebar = true } = Astro.props;
 ---
 
 <html lang="ja">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} image={image} />
   </head>
-  <body class="mx-1">
+  <body class="box-border flex h-dvh flex-col items-center gap-5">
     <Header />
-    <main class="main-content m-5 mx-auto max-w-screen-md rounded-2xl border border-slate-300 bg-white p-5">
-      <slot />
-    </main>
+    <div class="main-content flex w-lvw max-w-6xl flex-col gap-10 p-4 md:flex-row">
+      <main class="w-full max-w-full">
+        <slot />
+      </main>
+      {showSidebar && <SideBar />}
+    </div>
     <Footer />
-    <style>
-      .main-content {
-        box-shadow: 4px 4px 5px rgb(130, 152, 156);
-      }
-    </style>
   </body>
 </html>

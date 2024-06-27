@@ -1,6 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+import { ViewTransitions } from "astro:transitions";
 import { URL_BASE } from "../consts";
 
 interface Props {
@@ -46,7 +47,13 @@ const { title, description = "メモ", image = URL_BASE + "/nonsense1.webp" } = 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet" />
 
 <style>
+  html {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPElEQVRYR+2V4Q1EQBCFdysQDdCBCqiACuhABTrQgQ6oQCc60MBFBS5vk7m4i/ux3iYnuZH4g0m+/ebNsObml705n1FAtkNqUA2yBth6zaAaZA2w9UEzOI5jvG2bY2rb9sHCof6/AHHiYRicxSRJTF3XxlpLmQxqUFo6z3O8LIuDbJrm94AAAkyWZS8YmAyRRcqgQABEhqPrOidymib3jB0Wb8B9350ZARBLkr0oigzuEHCXplisoaVVVb3lq+97Bx8ie5Jnb4PYdSg+C7+8W9fV5HluiqKgBuSSwW/LV5Y0MgeTaPMxfzB/JY/eBr8BAkDafmy1DM/ViQ4CeLZSZGgA9mnT5xcYDBAQ7FI+A/8fQJy+LEuTpik9uUeTQQz6ZMr3WwX0Nfb5vRpUg6wBtl4zqAZZA2y9ZpA1+ARFb4kpQes0qwAAAABJRU5ErkJggg==");
+    background-repeat: repeat;
+  }
   body {
     font-family: "IBM Plex Sans JP", sans-serif;
   }
 </style>
+
+<ViewTransitions />

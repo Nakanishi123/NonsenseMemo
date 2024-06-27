@@ -5,5 +5,6 @@ export const SITE_TITLE = "メモ置き場";
 export const SITE_TITLE_EMOJI = "🚮";
 export const POSTS_PER_PAGE = 15;
 export const SITE_DESCRIPTION = "あ";
-export const AUTHOR = "Nakanishi123";
+export const AUTHOR = "Nakanishi";
 export const URL_BASE = "/NonsenseMemo";
+export const THEMES = ["panda", "forest"];

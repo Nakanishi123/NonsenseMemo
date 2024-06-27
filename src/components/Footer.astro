@@ -6,7 +6,10 @@ const currentYear = today.getFullYear();
 const year = currentYear > startYear ? `${startYear}-${currentYear}` : `${startYear}`;
 ---
 
-<footer class="p-4 text-center">
-  &copy; {year}&thinsp;
-  {AUTHOR}. All rights reserved.
+<footer class="footer footer-center mt-auto bg-base-300 p-4 text-base-content">
+  <aside>
+    <p>
+      &copy; {year}&thinsp;{AUTHOR}. All rights reserved.
+    </p>
+  </aside>
 </footer>

@@ -8,6 +8,6 @@ const posts = (await getCollection("memo")).sort((a, b) => b.data.pubDate.valueO
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h3 class="mb-5 text-center text-4xl">一覧</h3>
+  <h3 class="mb-8 text-center text-3xl font-bold">一覧</h3>
   <PostList posts={posts} />
 </BaseLayout>

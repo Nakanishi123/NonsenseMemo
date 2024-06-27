@@ -104,9 +104,9 @@ function Qrcode() {
   return (
     <div>
       <form ref={formRef}>
-        <div className="mb-6 grid gap-1 ">
+        <div className="mb-6 grid gap-1">
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">SSID</label>
+            <label className="m-1 block text-sm font-medium text-base-content">SSID</label>
             <input
               ref={ssid}
               type="text"
@@ -115,7 +115,7 @@ function Qrcode() {
             />
           </div>
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">PASSWORD</label>
+            <label className="m-1 block text-sm font-medium text-base-content">PASSWORD</label>
             <input
               ref={password}
               type="text"
@@ -124,7 +124,7 @@ function Qrcode() {
             />
           </div>
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">暗号化方式</label>
+            <label className="m-1 block text-sm font-medium text-base-content">暗号化方式</label>
             <select
               ref={encryptionType}
               className="w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -138,11 +138,11 @@ function Qrcode() {
         </div>
         <div className="flex">
           <input ref={hiddenSsid} type="checkbox" className="m-1" />
-          <label className="m-1 block text-sm font-medium text-gray-900 ">SSIDを非表示にする</label>
+          <label className="m-1 block text-sm font-medium text-base-content">SSIDを非表示にする</label>
         </div>
         <div className="grid grid-cols-4 gap-2">
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">色</label>
+            <label className="m-1 block text-sm font-medium text-base-content">色</label>
             <input
               type="color"
               ref={color}
@@ -150,7 +150,7 @@ function Qrcode() {
             />
           </div>
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">背景色</label>
+            <label className="m-1 block text-sm font-medium text-base-content">背景色</label>
             <input
               type="color"
               defaultValue="#ffffff"
@@ -159,7 +159,7 @@ function Qrcode() {
             />
           </div>
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">形</label>
+            <label className="m-1 block text-sm font-medium text-base-content">形</label>
             <select
               ref={shape}
               className="h-10 w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -170,7 +170,7 @@ function Qrcode() {
             </select>
           </div>
           <div>
-            <label className="m-1 block text-sm font-medium text-gray-900 ">マージン</label>
+            <label className="m-1 block text-sm font-medium text-base-content">マージン</label>
             <input
               type="number"
               defaultValue="26"
@@ -180,7 +180,7 @@ function Qrcode() {
           </div>
         </div>
       </form>
-      <img ref={imgRef} className="w-full border-2 border-solid border-black" style={{ maxWidth: "28rem" }} />
+      <img ref={imgRef} className="mx-auto w-96 max-w-full border-2 border-solid border-neutral" />
       <div className="flex justify-center">
         <button
           ref={downloadPng}

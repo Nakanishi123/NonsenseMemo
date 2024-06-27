@@ -1,12 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import by from "./cc-icons-svg/by.svg";
-import cc from "./cc-icons-svg/cc.svg";
-import nc from "./cc-icons-svg/nc.svg";
-import nd from "./cc-icons-svg/nd.svg";
-import sa from "./cc-icons-svg/sa.svg";
-import zero from "./cc-icons-svg/zero.svg";
-
+import { Icon } from "astro-icon/components";
 interface Props {
   licenseText?: string;
 }
@@ -25,19 +18,21 @@ let licenseUrl =
 
 {
   license && (
-    <div class="license text-center text-sm">
-      This work is licensed under
-      <a rel="license" href={licenseUrl} class="inline-flex text-orange-500 hover:text-black hover:underline">
-        {licenseWithNumber}
-        <div class="mx-1 flex h-5">
-          <Image class="ml-0.5 w-5" src={cc} alt="CC" />
-          {license.includes("CC0") && <Image class="ml-0.5 w-5" src={zero} alt="0" />}
-          {license.includes("BY") && <Image class="ml-0.5 w-5" src={by} alt="BY" />}
-          {license.includes("NC") && <Image class="ml-0.5 w-5" src={nc} alt="NC" />}
-          {license.includes("SA") && <Image class="ml-0.5 w-5" src={sa} alt="SA" />}
-          {license.includes("ND") && <Image class="ml-0.5 w-5" src={nd} alt="ND" />}
-        </div>
-      </a>
+    <div class="flex w-full justify-center">
+      <div class="license flex flex-row text-sm">
+        <div>This work is licensed under&nbsp;</div>
+        <a rel="license" href={licenseUrl} class="inline-flex text-accent hover:text-base-content">
+          <div>{licenseWithNumber}</div>
+          <div class="mx-1 flex gap-px">
+            <Icon class="h-full" name="fa6-brands:creative-commons" />
+            {license.includes("CC0") && <Icon class="h-full" name="fa6-brands:creative-commons-zero" />}
+            {license.includes("BY") && <Icon class="h-full" name="fa6-brands:creative-commons-by" />}
+            {license.includes("NC") && <Icon class="h-full" name="fa6-brands:creative-commons-nc" />}
+            {license.includes("SA") && <Icon class="h-full" name="fa6-brands:creative-commons-sa" />}
+            {license.includes("ND") && <Icon class="h-full" name="fa6-brands:creative-commons-nd" />}
+          </div>
+        </a>
+      </div>
     </div>
   )
 }
