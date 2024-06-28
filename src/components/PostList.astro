@@ -9,7 +9,7 @@ type Props = { posts: CollectionEntry<"memo">[] };
 const { posts } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+<div class="grid grid-cols-1 gap-4 md:grid-cols-3" data-pagefind-ignore>
   {
     posts.map(post => (
       <a class="card glass w-full bg-base-200 shadow-xl" href={`${URL_BASE}/memo/${post.slug}/`}>
