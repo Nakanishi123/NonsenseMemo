@@ -20,15 +20,12 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
 const { tag } = Astro.params;
 const { page } = Astro.props;
-
-const hasPrev = page.currentPage != 1;
-const hasNext = page.currentPage != page.lastPage;
-const onClickPrev = hasPrev ? `location.href = '${URL_BASE}/tag/${tag}/${page.currentPage - 1}'` : "";
-const onClickNext = hasNext ? `location.href = '${URL_BASE}/tag/${tag}/${page.currentPage + 1}'` : "";
 ---
 
 <BaseLayout title={`${tag} ${page.currentPage}ページ`} description=`${tag} ${page.currentPage}ページです`>
   <h3 class="mb-5 text-center text-4xl font-bold text-primary">{`${tag}`}</h3>
   <PostList posts={page.data} />
-  <Pagination page={page} onClickPrev={onClickPrev} onClickNext={onClickNext} />
+  <div class="mt-5 flex justify-center">
+    <Pagination page={page} url={`${URL_BASE}/tag/${tag}/`} />
+  </div>
 </BaseLayout>

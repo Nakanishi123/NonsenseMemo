@@ -2,63 +2,49 @@
 import type { Page } from "astro";
 type Props = {
   page: Page;
-  onClickPrev: string;
-  onClickNext: string;
+  url: string;
 };
 
-const { page, onClickPrev, onClickNext } = Astro.props;
+const { page, url } = Astro.props;
 const show = page.total > page.size;
-const hasPrev = page.currentPage != 1;
-const hasNext = page.currentPage != page.lastPage;
+
+let pages = [];
+pages.push(1);
+
+const startPage = Math.max(2, page.currentPage - 1);
+const endPage = Math.min(page.lastPage - 1, page.currentPage + 1);
+
+if (startPage > 2) {
+  pages.push("...");
+}
+
+for (let i = startPage; i <= endPage; i++) {
+  pages.push(i);
+}
+
+if (endPage < page.lastPage - 1) {
+  pages.push("...");
+}
+
+pages.push(page.lastPage);
 ---
 
 {
   show && (
-    <nav class="pagination">
-      <div>
-        <span class="text-sm text-gray-700">
-          Showing
-          <span class="font-semibold text-gray-900">{page.start + 1}</span>
-          to
-          <span class="font-semibold text-gray-900">{page.end + 1}</span>
-          of <span class="font-semibold text-gray-900">{page.total}</span>
-          Entries
-        </span>
-      </div>
-      <nav aria-label="Page navigation">
-        <ul class="inline-flex">
-          <li>
-            <button
-              class={`h-10 rounded-l-lg border border-r-0 border-gray-800 bg-white px-5 text-gray-800 ${
-                hasPrev ? "hover:bg-gray-100" : "pointer-events-none"
-              }`}
-              onclick={onClickPrev}
-            >
-              Prev
-            </button>
-          </li>
-
-          <li>
-            <button
-              class={`h-10 rounded-r-lg border border-gray-800 bg-white px-5 text-gray-800 ${
-                hasNext ? "hover:bg-gray-100" : "pointer-events-none"
-              }`}
-              onclick={onClickNext}
-            >
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </nav>
+    <div class="join">
+      {pages.map(p => {
+        if (p === "...") {
+          return <a class="btn btn-disabled btn-outline join-item">...</a>;
+        } else if (p === page.currentPage) {
+          return <a class="btn btn-primary join-item">{p}</a>;
+        } else {
+          return (
+            <a href={`${url}${p}`} class="btn btn-outline btn-primary join-item">
+              {p}
+            </a>
+          );
+        }
+      })}
+    </div>
   )
 }
-<style>
-  .pagination {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.5rem;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
