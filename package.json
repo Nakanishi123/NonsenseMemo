@@ -39,6 +39,8 @@
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-astro-organize-imports": "^0.4.8",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "rehype-katex": "^7.0.0",
+    "remark-math": "^6.0.0",
     "theme-change": "^2.5.0",
     "typescript": "^5.4.5"
   }
