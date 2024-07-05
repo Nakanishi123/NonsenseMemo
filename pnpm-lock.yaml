@@ -42,8 +42,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(astro@4.11.5(typescript@5.4.5))
       astro-rehype-img2pic:
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.1.1
+        version: 0.1.1
       pagefind:
         specifier: ^1.1.0
         version: 1.1.0
@@ -946,8 +946,8 @@ packages:
     peerDependencies:
       astro: ^2.0.4 || ^3.0.0 || ^4.0.0
 
-  astro-rehype-img2pic@0.1.0:
-    resolution: {integrity: sha512-eoeQXDwvaiLA4AsgMsmiYqKIa0ATYYn0T6WwfwUNmJ1Y8FRmBOSc7HmO81FA0CVW8u8SGbziQLE2e8QiYhBaPA==}
+  astro-rehype-img2pic@0.1.1:
+    resolution: {integrity: sha512-X9INwuwj9sZRrf/c53gea+pN1EIxr7u4ftli/gs54SBbIOGuEp0+sePdWaIDfilbYlJVQC9bKfGDpTDFMgBIJA==}
 
   astro@4.11.5:
     resolution: {integrity: sha512-TCRhuaLwrxwMhS8S1GG+ZTdrAXigX9C8E/YUTs/r2t+owHxDgwl86IV9xH1IHrCPoqhK6civyAQNOT+GKmkb0A==}
@@ -3730,7 +3730,7 @@ snapshots:
       pagefind: 1.1.0
       sirv: 2.0.4
 
-  astro-rehype-img2pic@0.1.0:
+  astro-rehype-img2pic@0.1.1:
     dependencies:
       sharp: 0.33.4
       unist-util-visit: 5.0.0
