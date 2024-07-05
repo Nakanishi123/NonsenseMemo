@@ -22,7 +22,7 @@ const { tag } = Astro.params;
 const { page } = Astro.props;
 ---
 
-<BaseLayout title={`${tag} ${page.currentPage}ページ`} description=`${tag} ${page.currentPage}ページです`>
+<BaseLayout title={`tag - ${tag} - ${page.currentPage}`} description=`tag - ${tag} - ${page.currentPage}`>
   <h3 class="mb-5 text-center text-4xl font-bold text-primary">{`${tag}`}</h3>
   <PostList posts={page.data} />
   <div class="mt-5 flex justify-center">
