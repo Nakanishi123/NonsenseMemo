@@ -5,7 +5,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 <BaseLayout title="検索" description="検索する">
   <h3 class="mb-5 text-center text-4xl font-bold">検索</h3>
-  <div class="bg-white p-10">
     <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
-  </div>
 </BaseLayout>
+
+<style>
+  :root {
+    --pagefind-ui-primary: var(--fallback-bc, oklch(var(--bc)));
+    --pagefind-ui-text: var(--fallback-bc, oklch(var(--bc)));
+    --pagefind-ui-background: var(--fallback-b1, oklch(var(--b1)));
+    --pagefind-ui-border: var(--fallback-bc, oklch(var(--bc)));
+    --pagefind-ui-tag: var(--fallback-b1, oklch(var(--b1)));
+  }
+</style>
