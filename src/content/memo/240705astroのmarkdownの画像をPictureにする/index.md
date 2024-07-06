@@ -68,13 +68,15 @@ export default function mdImgToPic(): AstroIntegration {
 }
 ```
 
-コードとしてはこんな感じ. `astro:config:setup`が初期化時に呼ばれるフックで，`configureMdImgToPicPlugin`は設定を受け取って，rehypeのプラグインを返す高階関数で，それで出力された関数をupdateConfigでrehyePluginsに追加している．上手なやり方だと思う．Github上にあったコードを**参考**にしました．
+コードとしてはこんな感じ.
+
+`astro:config:setup`が初期化時に呼ばれるフックで，`configureMdImgToPicPlugin`は設定を受け取って，rehypeのプラグインを返す高階関数で，それで出力された関数をupdateConfigでrehyePluginsに追加している．上手なやり方だと思う．(Github上にあったコードを参考にしました)
 
 ## まとめ
 
 思ったより簡単だった．
 
-Githubにコードを上げておくので，興味がある人は使ったり改造したりしてみてほしい．
+Githubにコードを上げておくので，興味がある人は使ってみてください．
 
 https://github.com/Nakanishi123/astro-rehype-img2pic
 
