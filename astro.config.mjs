@@ -13,6 +13,7 @@ import rlc from "remark-link-card";
 
 // https://astro.build/config
 export default defineConfig({
+  cacheDir: ".cache",
   site: "https://nonsensememo.pages.dev",
   integrations: [mdx(), sitemap(), react(), tailwind(), pagefind(), icon(), rehypeImg2pic()],
   markdown: {
